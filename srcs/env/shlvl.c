@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shlvl.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minslee <minslee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:28:38 by minslee           #+#    #+#             */
-/*   Updated: 2022/08/23 22:28:38 by minslee          ###   ########.fr       */
+/*   Updated: 2023/04/05 11:17:52 by hyyoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	increment_shell_level(t_env *env)
 	char	*shlvl;
 	char	*shell_level_value;
 
-	shell_level_value = get_env_value("SHLVL", env);
+	shell_level_value = get_env_value("SHLVL", env); //쉘 레벨?..
 	if (ft_strcmp(shell_level_value, "") == 0)
 		return ;
-	shell_level = get_lvl(shell_level_value) + 1;
+	shell_level = get_lvl(shell_level_value) + 1; //쉘레벨 아토이함. + 1 을 해줘야 값이 맞게 나오는듯
 	ft_memdel(shell_level_value);
 	while (env && env->next)
 	{

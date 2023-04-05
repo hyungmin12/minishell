@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuhyeongmin <yuhyeongmin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 11:51:22 by minslee           #+#    #+#             */
-/*   Updated: 2023/04/05 10:49:32 by yuhyeongmin      ###   ########.fr       */
+/*   Updated: 2023/04/05 11:43:53 by hyyoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,12 @@ int	main(int ac, char **av, char **env)
 	mini.ret = 0;
 	mini.no_exec = 0;
 	reset_fds(&mini); //fd 이닛
-	env_init(&mini, env);
-	secret_env_init(&mini, env);
-	increment_shell_level(mini.env);
+	env_init(&mini, env); // 환경변수 이닛
+	secret_env_init(&mini, env); // 확실하진 않지만 나중에 다시 쓰는듯?.. 그래서 두개로 나눠서 이닛?..
+	increment_shell_level(mini.env); //SHLVL에 관한것
 	while (mini.exit == 0)
 	{
-		sig_init();
+		sig_init(); //각시그널에 대한 값을 전역구조체로 저장해놓음
 		parse(&mini);
 		if (mini.start != NULL && check_line(&mini, mini.start))
 			minishell(&mini);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minslee <minslee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:18:33 by hwsong            #+#    #+#             */
-/*   Updated: 2022/08/24 06:28:22 by minslee          ###   ########.fr       */
+/*   Updated: 2023/04/05 11:32:55 by hyyoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,13 @@ void	parse_plus(t_mini *mini, char *line)
 void	parse(t_mini *mini)
 {
 	char	*line;
-	t_token	*token;
+	t_token	*token; // 명령어 모음인듯.
 
 	signal(SIGINT, &sig_int);
 	signal(SIGQUIT, &sig_quit);
 	ft_putstr_fd("", STDERR);
 	line = readline("\033[0;36m\033[1mminishell ▸ \033[0m");
-	add_history(line);
+	add_history(line); //내장함수
 	parse_plus(mini, line);
 	squish_args(mini);
 	token = mini->start;

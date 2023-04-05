@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_env.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minslee <minslee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyyoo <hyyoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:28:32 by minslee           #+#    #+#             */
-/*   Updated: 2022/08/24 10:12:48 by minslee          ###   ########.fr       */
+/*   Updated: 2023/04/05 11:16:37 by hyyoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*get_env_value(char *arg, t_env *env)
 	env_val = ft_strdup("");
 	while (env && env->value)
 	{
-		get_env_name(env_name, env->value);
+		get_env_name(env_name, env->value); // 따움표 뺀 env 가져옴
 		if (ft_strcmp(arg, env_name) == 0)
 		{
 			ft_memdel(env_val);
